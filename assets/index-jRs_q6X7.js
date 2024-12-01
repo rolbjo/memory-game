@@ -32,7 +32,7 @@ import{r as w,a as y0,R as q}from"./react-vendor-B5ZO-m6Q.js";import{L as e3,u a
   background-image: url(/menu-flags.avif);
   height: 100vh;
   background-size: cover;
-`,O0=()=>{const[i,e]=w.useState(!0);return w.useEffect(()=>{document.body.style.backgroundImage="url(/menu-flags.avif)",setTimeout(()=>{e(!1)},100)},[]),i?E.jsx("div",{style:{backgroundColor:"white",height:"100vh"}}):E.jsxs(k0,{children:[E.jsx(F0,{children:"Menu"}),E.jsxs(A0,{children:[E.jsx(e3,{to:"/memory/japan",children:E.jsx(r3,{children:"Japan memory"})}),E.jsx(e3,{to:"/memory/sweden",children:E.jsx(r3,{children:"Sweden memory"})})]})]})},j0=B.img`
+`,O0=()=>{const[i,e]=w.useState(!0);return w.useEffect(()=>{document.body.style.backgroundImage="url(menu-flags.avif)",setTimeout(()=>{e(!1)},100)},[]),i?E.jsx("div",{style:{backgroundColor:"white",height:"100vh"}}):E.jsxs(k0,{children:[E.jsx(F0,{children:"Menu"}),E.jsxs(A0,{children:[E.jsx(e3,{to:"/memory/japan",children:E.jsx(r3,{children:"Japan memory"})}),E.jsx(e3,{to:"/memory/sweden",children:E.jsx(r3,{children:"Sweden memory"})})]})]})},j0=B.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
