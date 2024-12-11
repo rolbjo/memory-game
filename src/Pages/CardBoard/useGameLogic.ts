@@ -12,6 +12,8 @@ const useGameLogic = (
   const [isAudioReady, setIsAudioReady] = useState(false)
 
   const audioRef = useRef<HTMLAudioElement>(null)
+  const flipSoundRef = useRef<HTMLAudioElement>(null)
+  const flipBackSoundRef = useRef<HTMLAudioElement>(null)
 
   const resetGame = () => {
     if (shuffledCards.length > 0) {
@@ -30,6 +32,9 @@ const useGameLogic = (
       newShuffledCards[index].visible = true
       setShuffledCards(newShuffledCards)
       setFlippedCards([...flippedCards, index])
+      if (flipSoundRef.current) {
+        flipSoundRef.current.play()
+      }
     }
   }
 
@@ -39,6 +44,11 @@ const useGameLogic = (
       if (shuffledCards[index1].src === shuffledCards[index2].src) {
         setFlippedCards([])
       } else {
+        const soundTimer = setTimeout(() => {
+          if (flipBackSoundRef.current) {
+            flipBackSoundRef.current.play()
+          }
+        }, 1300)
         const timer = setTimeout(() => {
           const newShuffledCards = [...shuffledCards]
           newShuffledCards[index1].visible = false
@@ -47,7 +57,10 @@ const useGameLogic = (
           setFlippedCards([])
         }, 1500)
 
-        return () => clearTimeout(timer)
+        return () => {
+          clearTimeout(timer)
+          clearTimeout(soundTimer)
+        }
       }
     }
   }, [flippedCards, shuffledCards])
@@ -73,7 +86,14 @@ const useGameLogic = (
     }
   }, [shuffledCards, isAudioReady])
 
-  return { handleCardClick, resetGame, flippedCards, audioRef }
+  return {
+    handleCardClick,
+    resetGame,
+    flippedCards,
+    audioRef,
+    flipSoundRef,
+    flipBackSoundRef,
+  }
 }
 
 export default useGameLogic

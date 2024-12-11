@@ -19,12 +19,13 @@ const CardBoard = () => {
     sound,
     isLoading,
   } = useMemorySet(setId || '')
-  const { resetGame, handleCardClick, audioRef } = useGameLogic(
-    shuffledCards,
-    setShuffledCards,
-    sound,
-    isLoading
-  )
+  const {
+    resetGame,
+    handleCardClick,
+    audioRef,
+    flipSoundRef,
+    flipBackSoundRef,
+  } = useGameLogic(shuffledCards, setShuffledCards, sound, isLoading)
 
   if (isLoading) {
     return <div style={{ backgroundColor: 'white', height: '100vh' }}></div>
@@ -58,6 +59,8 @@ const CardBoard = () => {
       </BoardGrid>
 
       <audio ref={audioRef} preload='auto' />
+      <audio ref={flipSoundRef} src='card-sound.ogg' preload='auto' />
+      <audio ref={flipBackSoundRef} src='flip-back-sound.wav' preload='auto' />
     </>
   )
 }

@@ -6,7 +6,7 @@ const Menu = () => {
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    document.body.style.backgroundImage = 'url(/menu-flags.avif)'
+    document.body.style.backgroundImage = 'url(menu-flags.avif)'
     setTimeout(() => {
       setIsLoading(false)
     }, 100)
